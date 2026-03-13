@@ -6,7 +6,7 @@ def create_task(
         content: Any,
         user_id: str,
         is_done: bool
-):
+) -> httpx.Response:
     body = {
         "content": content,
         "user_id": user_id,
