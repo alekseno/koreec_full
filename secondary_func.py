@@ -1,4 +1,5 @@
 import httpx
+import uuid
 from config import BASE_URL
 from typing import Any #принимает любые значения
 
@@ -7,6 +8,7 @@ def create_task(
         user_id: str,
         is_done: bool
 ) -> httpx.Response:
+    user_id = str(uuid.uuid4())
     body = {
         "content": content,
         "user_id": user_id,

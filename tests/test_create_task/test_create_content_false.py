@@ -1,11 +1,12 @@
 import httpx
 from secondary_func import create_task
+
  
 
 def test_create_content_false():
     response = create_task(
         content = False,
-        user_id = "string",
+        user_id = str,
         is_done = False
     )
 
@@ -13,7 +14,9 @@ def test_create_content_false():
 
     assert response.status_code == httpx.codes.OK, f"Код ответа ожидался 200, по факту пришел {response.status_code}"
 
-    assert data['task']['content'] == ['content']
-    print(data)
+    assert data['task']['content'] == "False"
+    assert data['task']['is_done'] == False
+       
+    #print(data)
   
     
