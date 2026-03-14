@@ -15,3 +15,10 @@ def create_task(
 
     path = "/create-task"
     return httpx.put(BASE_URL + path, json = body)
+
+def get_task(
+    task_id: str
+) -> httpx.Response:
+   
+    path = f"/get-task/{task_id}"
+    return httpx.get(BASE_URL + path)
