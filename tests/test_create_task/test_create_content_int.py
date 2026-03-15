@@ -9,7 +9,7 @@ def test_create_content_int():
 )
     data = response.json()
 
-    assert response.status_code == httpx.codes.OK, "Ожидался код 200, пришел {response.status_code}"
+    assert response.status_code == httpx.codes.OK, f"Ожидался код 200, пришел {response.status_code}"
 
     assert data['task']['content'] == "1023456789", "[content] is different"
 
