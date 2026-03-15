@@ -1,9 +1,9 @@
 import httpx
 from secondary_func import create_task
 
-def test_create_contetn_int():
+def test_create_content_int():
     response = create_task(
-        contetn = "1023456789",
+        content = "1023456789",
         user_id = str,
         is_done = False
 )
