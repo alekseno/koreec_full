@@ -4,8 +4,8 @@ from config import BASE_URL
 
 def test_get_task_id():
     response = create_task(
-        content="my test",
-        user_id = "string",
+        content = "my test",
+        user_id = str,
         is_done = False
     )
     
@@ -20,5 +20,5 @@ def test_get_task_id():
     get_task_data = get_task_response.json()
     #assert get_task_data["content"] == body["content"]
     #assert get_task_data["user_id"] == body["user_id"]
-    assert get_task_data["task_id"] == task_id
+    assert get_task_data["task_id"] == task_id, "the data is different"
     #print(get_task_data)
