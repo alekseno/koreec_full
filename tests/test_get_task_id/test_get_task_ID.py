@@ -1,6 +1,5 @@
 import httpx
-from secondary_func import create_task, get_task
-from config import BASE_URL
+from secondary_func import create_task, get_task_id
 
 def test_get_task_id():
     response = create_task(
@@ -10,10 +9,9 @@ def test_get_task_id():
     )
     
     data = response.json()
-    #print(data)
-    
     task_id = data['task']['task_id']
-    get_task_response = get_task(task_id)
+    
+    get_task_response = get_task_id(task_id)
 
     assert get_task_response.status_code == httpx.codes.OK, f"Код ответа ожидался 200, по факту пришел {get_task_response.status_code}"
 

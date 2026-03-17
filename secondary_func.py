@@ -14,13 +14,20 @@ def create_task(
         "user_id": user_id,
         "is_done": is_done
     }
-
+     
     path = "/create-task"
     return httpx.put(BASE_URL + path, json = body)
 
-def get_task(
+def get_task_id(
     task_id: str
 ) -> httpx.Response:
    
     path = f"/get-task/{task_id}"
+    return httpx.get(BASE_URL + path)
+ 
+def get_user_id(
+    user_id: str
+ ) -> httpx.Response:
+    
+    path = f"/list-tasks/{user_id}"
     return httpx.get(BASE_URL + path)
