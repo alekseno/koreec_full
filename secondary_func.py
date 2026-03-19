@@ -48,3 +48,10 @@ def update_task(
     
     path = f"/update-task"
     return httpx.put(BASE_URL + path, json = body)
+
+def del_task(
+        task_id: str
+) -> httpx.Response:
+    
+    path = f"/delete-task/{task_id}"
+    return httpx.delete(BASE_URL + path)
