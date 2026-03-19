@@ -19,7 +19,6 @@ def test_get_list_task_user_id():
 
     assert get_user_data['tasks'][0]['user_id'] == post_user_id, "[get_user_id] and [post_user_id] is different"
 
-    assert get_user_data['tasks'][0]['content'] == data['task']['content']
-
-    assert get_user_data['tasks'][0]['task_id'] == data['task']['task_id']
+    assert get_user_data['tasks'][0]['content'] == data['task']['content'], "is different"
+    assert get_user_data['tasks'][0]['task_id'] == data['task']['task_id'], "is different"
     

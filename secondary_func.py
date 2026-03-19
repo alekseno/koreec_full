@@ -31,3 +31,20 @@ def get_user_id(
     
     path = f"/list-tasks/{user_id}"
     return httpx.get(BASE_URL + path)
+
+def update_task(
+        content: Any,
+        user_id: str,
+        task_id: str,
+        is_done: bool
+) -> httpx.Response:
+    
+    body = {
+        "content": content,
+        "user_id": user_id,
+        "task_id": task_id,
+        "is_done": is_done
+    }
+    
+    path = f"/update-task"
+    return httpx.put(BASE_URL + path, json = body)
