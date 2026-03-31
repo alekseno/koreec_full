@@ -57,6 +57,7 @@ def del_task(
     path = f"/delete-task/{task_id}"
     return httpx.delete(BASE_URL + path)
 
+#регулярка для проверки формата поля task_id
 def template_check_task_id(create_task_id):
     template = re.findall(r"task_[0-9a-z]{32}", create_task_id)
     result_temp = ' '.join(map(str, template))
