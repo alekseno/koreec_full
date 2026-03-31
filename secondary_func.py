@@ -2,6 +2,7 @@ import httpx
 import uuid
 from config import BASE_URL
 from typing import Any #принимает любые значения
+import re
 
 def create_task(
         content: Any,
@@ -55,3 +56,8 @@ def del_task(
     
     path = f"/delete-task/{task_id}"
     return httpx.delete(BASE_URL + path)
+
+def template_check_task_id(create_task_id):
+    template = re.findall(r"task_[0-9a-z]{32}", create_task_id)
+    result_temp = ' '.join(map(str, template))
+    return result_temp
