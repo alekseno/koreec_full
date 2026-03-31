@@ -11,9 +11,9 @@ def test_create_content_task_str():
     data_response = response.json()
     create_task_id = data_response['task']['task_id']
 
-    temp_check = template_check_task_id(create_task_id)
+    temp_check_task_id = template_check_task_id(create_task_id)
 
-    assert create_task_id == temp_check, "uuid is different"
+    assert create_task_id == temp_check_task_id, "uuid is different"
 
     assert isinstance(create_task_id, str), "is not str"
     assert isinstance(create_task_id, int) == False, "is int"
