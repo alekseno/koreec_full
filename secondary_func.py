@@ -58,13 +58,13 @@ def del_task(
     return httpx.delete(BASE_URL + path)
 
 #регулярка для проверки формата поля task_id
-def template_check_task_id(create_task_id):
-    temp_task_id = re.findall(r"task_[0-9a-z]{32}", create_task_id)
+def template_check_task_id(value: str):
+    temp_task_id = re.findall(r"task_[0-9a-z]{32}", value)
     result_temp = ' '.join(map(str, temp_task_id))
     return result_temp
 
 #регулярка для проверки формата поля user_id
-def template_check_user_id(create_user_id):
-    temp_user_id = re.findall(r"[0-9a-z]{8}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{12}", create_user_id)
+def template_check_user_id(value: str):
+    temp_user_id = re.findall(r"[0-9a-z]{8}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{12}", value)
     result_temp_user_id = ' '.join(map(str, temp_user_id))
     return result_temp_user_id
