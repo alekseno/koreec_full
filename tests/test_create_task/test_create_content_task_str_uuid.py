@@ -23,3 +23,6 @@ def test_create_content_task_str():
 
     assert create_task_id is not None
     assert len(create_task_id) == 37, "task_id не 37 символов"
+    assert create_task_id.startswith('task_')
+
+    #assert isinstance(create_task_id, int and bool) == False
