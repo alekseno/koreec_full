@@ -16,5 +16,5 @@ def template_check_task_id(value: str):
 def test_user():
    
     response = template_check_task_id(a)
-    assert response == a, "не соответствует шаблону рекурсии"
+    assert response == a, "не соответствует шаблону регулярки"
     print(response)

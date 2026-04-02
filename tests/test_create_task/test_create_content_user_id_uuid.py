@@ -21,5 +21,5 @@ def test_create_contetn_user_id_uuid():
     assert isinstance(create_user_id, bool) == False, "is bool"
     assert isinstance(create_user_id, type(None)) == False, "is None"
 
-
+    assert create_user_id is not None
     #проверки: user_id не пустое значение, не None (в этой API поле не работает)

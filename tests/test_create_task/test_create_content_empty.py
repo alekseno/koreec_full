@@ -12,6 +12,7 @@ def test_create_content_empty():
 
     assert response.status_code == httpx.codes.OK, f"Ожидался код 200, пришел {response.status_code}"
 
+    # проверка пустого значения
     assert data['task']['content'] == "", "[content] is different"
     assert data['task']['is_done'] == False, "[is_done] is different"
     
