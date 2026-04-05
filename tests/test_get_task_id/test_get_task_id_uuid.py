@@ -19,4 +19,4 @@ def test_get_check_task_id_uuid():
     temp_check_task_id = template_check_task_id(get_task_id_data)
 
     # сравниваем task_id методом get c регуляркой
-    assert get_task_id_data == temp_check_task_id, "uuid check different"
+    assert get_task_id_data == temp_check_task_id, "формат не соответствует шаблону"

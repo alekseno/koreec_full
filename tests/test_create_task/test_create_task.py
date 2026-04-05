@@ -13,5 +13,6 @@ def test_create_task():
     data = response.json()
     #print(data)
 
+ #ЗАДАНИЕ:  дописать проверку тела ответа
 
     

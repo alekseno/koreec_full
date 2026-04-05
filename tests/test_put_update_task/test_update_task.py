@@ -32,5 +32,6 @@ def test_put_update_task(): #создаем задачу
 
     assert get_task_response.status_code == httpx.codes.OK, f"Ожидался код 200, пришел {get_task_response.status_code}"
 
+    assert get_task_id_data['content'] == "покупки на вторник"
     assert get_task_id_data['user_id'] == create_user_id, "is different"
     assert get_task_id_data['task_id'] == create_task_id, "is different"

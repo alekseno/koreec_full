@@ -11,6 +11,8 @@ def test_DEL_task_id():
     create_data = response.json()
     create_task_id = create_data['task']['task_id']
     create_user_id = create_data['task']['user_id']
+    
+    assert response.status_code == httpx.codes.OK, f"Ожидался код 200, пришел {response.status_code}"
 
     #удаление задачи
     del_response = del_task(create_task_id)
@@ -29,13 +31,13 @@ def test_DEL_task_id():
 
     assert get_response.status_code == httpx.codes.NOT_FOUND, f"Ожидался код 404, пришел{get_response.status_code}"
 
-    #проверка удаления задачи через user_id
+    #проверка, что задача удалена через поле /list-tasks/{user_id}
 
     get_user_response = get_user_id(
         user_id = create_user_id
     )
 
-    get_user_data = get_user_response.json
+    get_user_data = get_user_response.json()
 
     assert get_user_response.status_code ==httpx.codes.OK, f"Ожидался код 200, пришел {get_user_response.status_code}"
 

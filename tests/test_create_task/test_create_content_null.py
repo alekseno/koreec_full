@@ -12,3 +12,4 @@ def test_create_content_null():
 
     assert response.status_code == httpx.codes.UNPROCESSABLE_ENTITY, f"Ожидался код 422, пришел {response.status_code}"
 
+#ЗАДАНИЕ: вытащить тело ответа с ошибкой

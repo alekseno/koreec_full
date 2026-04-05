@@ -1,7 +1,7 @@
 import httpx
 from secondary_func import create_task, del_task
 
-def test_del_task_N():
+def test_del_task_bed_format():
     response = create_task(
         content = "del negativ task",
         user_id = str,

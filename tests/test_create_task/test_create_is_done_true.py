@@ -12,5 +12,5 @@ def test_create_is_done_true():
 
     assert response.status_code == httpx.codes.OK, f"Ожидался код 200, пришел {response.status_code}"
 
-    assert data['task']['content'] == "my task", "[content] is differetn"
-    assert data['task']['is_done'] == False, "[is_done] is different"
+    assert data['task']['content'] == "my task", "данные в поле content отличаются от запроса"
+    assert data['task']['is_done'] == False, "данные в поле is_done отличаются от запроса"

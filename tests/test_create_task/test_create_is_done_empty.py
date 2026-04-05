@@ -11,3 +11,5 @@ def test_create_is_done_empty():
     data = response.json()
 
     assert response.status_code == httpx.codes.UNPROCESSABLE_ENTITY, f"Ожидался код 422, пришел {response.status_code}"
+
+    #ЗАДАНИЕ: вытащить тело ответа

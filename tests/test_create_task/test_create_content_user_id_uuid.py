@@ -14,12 +14,8 @@ def test_create_contetn_user_id_uuid():
     temp_check_user_id = template_check_user_id(create_user_id)
 
     #проверка формата поля user_id
-    assert create_user_id == temp_check_user_id, "uuid is different"
+    assert create_user_id == temp_check_user_id, "формат user_id отличается от шаблона"
 
-    assert isinstance(create_user_id, str), "is not str"
-    assert isinstance(create_user_id, int) == False, "is int"
-    assert isinstance(create_user_id, bool) == False, "is bool"
-    assert isinstance(create_user_id, type(None)) == False, "is None"
-
+    assert isinstance(create_user_id, str), "формат user_id не является строкой"
     assert create_user_id is not None
     #проверки: user_id не пустое значение, не None (в этой API поле не работает)
