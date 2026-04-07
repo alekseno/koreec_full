@@ -4,7 +4,7 @@ from secondary_func import create_task
 def test_create_is_done_true():
     response = create_task(
         content = "my task",
-        user_id = str,
+        user_id = "str",
         is_done = True
         
     )

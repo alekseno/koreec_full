@@ -19,6 +19,23 @@ def create_task(
     path = "/create-task"
     return httpx.put(BASE_URL + path, json = body)
 
+# создание много тасок для пользователя
+
+def create_many_tasks(
+        content: Any,
+        user_id: str,
+        is_done: bool
+) -> httpx.Response:
+    body = {
+        "content": content,
+        "user_id": user_id,
+        "is_done": is_done
+    }
+     
+    path = "/create-task"
+    return httpx.put(BASE_URL + path, json = body)
+
+
 def get_task_id(
     task_id: str
 ) -> httpx.Response:
@@ -59,10 +76,10 @@ def del_task(
 
 #регулярка для проверки формата поля task_id
 def template_check_task_id(value: str):
-    temp_task_id = re.findall(r"task_[0-9a-z]{32}", value)
-    result_temp = ' '.join(map(str, temp_task_id))
-    return result_temp
-
+    if re.match(r"^task_[0-9a-z]{32}$", value):
+        return True
+    return False
+   
 #регулярка для проверки формата поля user_id
 def template_check_user_id(value: str):
     if re.match(r'^[0-9a-z]{8}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{12}$', value):

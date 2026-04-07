@@ -4,7 +4,7 @@ from secondary_func import create_task
 def test_create_content_int_str():
     response = create_task(
         content = "1023456789",
-        user_id = str,
+        user_id = "str",
         is_done = False
 )
     data = response.json()

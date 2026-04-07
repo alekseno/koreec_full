@@ -4,7 +4,7 @@ from secondary_func import create_task
 def test_create_content_null():
     response = create_task(
         content = None,
-        user_id = str,
+        user_id = "str",
         is_done = False
 
     )
@@ -24,6 +24,6 @@ def test_create_content_null():
 
     assert response.status_code == httpx.codes.UNPROCESSABLE_ENTITY, f"Ожидался код 422, пришел {response.status_code}"
 
-    assert data == expected_result, "данные ответа отличаются от шаблона сервера"
+    assert data == expected_result, "данные ответа отличаются от ожидаемого результата"
 
  

@@ -4,7 +4,7 @@ from secondary_func import create_task
 def test_create_content_symbols():
     response = create_task(
         content = "!#$%&()*+-/;:<=>@[]^`{}~{}|/",
-        user_id = str,
+        user_id = "str",
         is_done = False
     )
     data = response.json()

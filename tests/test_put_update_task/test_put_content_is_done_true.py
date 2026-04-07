@@ -4,7 +4,7 @@ from secondary_func import create_task, get_task_id, update_task
 def test_put_content_is_done_true():
     response = create_task(
         content = "5055",
-        user_id = str,
+        user_id = "str",
         is_done = False
     )
 
@@ -33,6 +33,6 @@ def test_put_content_is_done_true():
 
     assert get_task_response.status_code == httpx.codes.OK, f"Ожидался код 200, пришел {get_task_response.status_code}"
 
-    assert get_task_id_data['user_id'] == create_user_id, "is different"
-    assert get_task_id_data['task_id'] == create_task_id, "is different"
-    assert get_task_id_data['is_done'] == True, "is different"
+    assert get_task_id_data['user_id'] == create_user_id, "поле user_id отличается от запроса"
+    assert get_task_id_data['task_id'] == create_task_id, "поле task_id отличается от запроса"
+    assert get_task_id_data['is_done'] == True, "поле is_done  отличается от запроса"

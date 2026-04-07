@@ -11,8 +11,9 @@ def test_create_task():
     assert response.status_code == httpx.codes.OK, f"Код ответа ожидался 200, по факту пришел {response.status_code}"
     
     data = response.json()
-    
+    assert data['task']['content'] == "me 123", "content не совпадает"
+    assert data['task']['is_done'] == False, "is_done не совпадает"
 
- #ЗАДАНИЕ:  дописать проверку тела ответа
+ 
 
     

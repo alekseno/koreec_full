@@ -4,7 +4,7 @@ from secondary_func import create_task, del_task, get_task_id, get_user_id
 def test_del_task_id():
     response = create_task(
         content = "delete_task",
-        user_id = str,
+        user_id = "str",
         is_done = False
     )
 

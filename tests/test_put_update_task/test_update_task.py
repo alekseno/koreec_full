@@ -4,7 +4,7 @@ from secondary_func import create_task, update_task, get_task_id
 def test_put_update_task(): #создаем задачу
     response = create_task(
         content = "список покупок на субботу",
-        user_id = str,
+        user_id = "str",
         is_done = False
     )
 

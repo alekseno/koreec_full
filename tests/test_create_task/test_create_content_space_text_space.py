@@ -4,7 +4,7 @@ from secondary_func import create_task
 def test_create_content_space_text_space():
     response = create_task(
         content = " чашка ",
-        user_id = str,
+        user_id = "str",
         is_done = False
     )
 

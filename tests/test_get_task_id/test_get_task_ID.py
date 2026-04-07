@@ -16,9 +16,9 @@ def test_get_task_id():
     assert get_task_response.status_code == httpx.codes.OK, f"Код ответа ожидался 200, по факту пришел {get_task_response.status_code}"
 
     get_task_data = get_task_response.json()
-    assert get_task_data["content"] == body["content"]
-    assert get_task_data["user_id"] == body["user_id"]
-    assert get_task_data["task_id"] == task_id, "the data is different"
+    assert get_task_data["content"] == data["task"]["content"], "данные полей content отличаются"
+
+    assert get_task_data["user_id"] == data["task"]["user_id"], "данные полей user_id отличаются"
+
+    assert get_task_data["task_id"] == task_id, "данные полей task_id отличаются"
      
-"""ЗАДАНИЕ:
-вытащить адрес body"""
