@@ -41,7 +41,7 @@ def test_del_task_id():
 
     assert get_user_response.status_code == httpx.codes.OK, f"Ожидался код 200, пришел {get_user_response.status_code}"
 
-    assert get_user_data, f"{'tasks'}" == [] 
+    assert get_user_data['tasks'] == [] 
 
     
 

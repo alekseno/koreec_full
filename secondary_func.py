@@ -65,6 +65,6 @@ def template_check_task_id(value: str):
 
 #регулярка для проверки формата поля user_id
 def template_check_user_id(value: str):
-    temp_user_id = re.findall(r"[0-9a-z]{8}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{12}", value)
-    result_temp_user_id = ' '.join(map(str, temp_user_id))
-    return result_temp_user_id
+    if re.match(r'^[0-9a-z]{8}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{12}$', value):
+        return True
+    return False

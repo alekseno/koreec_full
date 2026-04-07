@@ -17,6 +17,4 @@ def test_get_user_id_uuid():
     get_user_id_data = get_data['tasks'][0]['user_id']
 
     # проверка формата user_id (get) с регуляркой
-    temp_check_user_id = template_check_user_id(get_user_id_data)
-
-    assert get_user_id_data == temp_check_user_id
+    assert template_check_user_id(get_user_id_data)
