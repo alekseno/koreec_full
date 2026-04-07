@@ -1,7 +1,7 @@
 import httpx
 from secondary_func import create_task, del_task, get_task_id, get_user_id
 
-def test_DEL_task_id():
+def test_del_task_id():
     response = create_task(
         content = "delete_task",
         user_id = str,
@@ -39,7 +39,7 @@ def test_DEL_task_id():
 
     get_user_data = get_user_response.json()
 
-    assert get_user_response.status_code ==httpx.codes.OK, f"Ожидался код 200, пришел {get_user_response.status_code}"
+    assert get_user_response.status_code == httpx.codes.OK, f"Ожидался код 200, пришел {get_user_response.status_code}"
 
     assert get_user_data, f"{'tasks'}" == [] 
 

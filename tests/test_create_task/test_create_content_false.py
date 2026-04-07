@@ -14,7 +14,6 @@ def test_create_content_false():
 
     assert response.status_code == httpx.codes.OK, f"Код ответа ожидался 200, по факту пришел {response.status_code}"
 
-    # проверка поля content==False
     assert data['task']['content'] == "False", "данные в поле content отличаются от запроса"
     assert data['task']['is_done'] == False, "данные в поле is_done отличаются от запроса"
        

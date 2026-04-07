@@ -11,7 +11,7 @@ def test_create_task():
     assert response.status_code == httpx.codes.OK, f"Код ответа ожидался 200, по факту пришел {response.status_code}"
     
     data = response.json()
-    #print(data)
+    
 
  #ЗАДАНИЕ:  дописать проверку тела ответа
 
