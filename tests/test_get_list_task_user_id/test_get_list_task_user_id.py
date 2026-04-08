@@ -3,7 +3,7 @@ from secondary_func import create_task, get_user_id, create_many_tasks
 
 def test_get_list_task_user_id():
     create_response = create_task(
-        content = "test №1",
+        content = "test #1",
         user_id = "str",
         is_done = False
     )
@@ -54,17 +54,29 @@ def test_get_list_task_user_id():
     assert len(set(user_ids)) == 1, f"Найдены разные user_id:{set(user_ids)}. Список всех id: {user_ids}"
 
     #                 сравнение content
+    # ===========1 вариант сравнения 
     #ожидаемый результат
-    expected_contents = ["test #3", "test #2", "test №1"] 
+    expected_contents = ["test #3", "test #2", "test #1"] 
 
     # фактический результат
     actual_content = [
         get_tasks_data[0]['content'],
         get_tasks_data[1]['content'],
         get_tasks_data[2]['content']
-
     ]
     assert actual_content == expected_contents
+
+    # ==============2 вариант  сравнения
+    assert [task['content'] for task in get_tasks_data] == ["test #3", "test #2", "test #1"]
+
+    # ========3 вариант сравнения
+    expected_contents_2 = [
+        task_one_data['task']['content'],
+        task_two_data['task']['content'],
+        task_three_data['task']['content']
+    ]
+    assert expected_contents_2[::-1] == actual_content
+
 
     #             проверка, что task_id разные
     task_ids = [
@@ -79,6 +91,16 @@ def test_get_list_task_user_id():
 
 
 """
+for task in get_tasks_data:
+        if task['task_id'] == task_one_data['task']['task_id']:
+            assert task['content'] == "test №1"
+            assert task['user_id'] == task_one_user_id
+        elif task['task_id'] == task_two_data['task']['task_id']:
+            assert task['content'] == "test #2"
+        elif task['task_id'] == task_three_data['task']['task_id']:
+            assert task['content'] == "test #3"
+
+assert [task['content'] for task in get_tasks_data[:3]] == ["test #3", "test #2", "test №1"]
 
     #сранение task_id каждой задачи, должны быть разные
     assert get_tasks_data[2]['task_id'] == task_one_data['task']['task_id']
