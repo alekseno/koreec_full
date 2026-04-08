@@ -64,10 +64,10 @@ def test_get_list_task_user_id():
         get_tasks_data[1]['content'],
         get_tasks_data[2]['content']
     ]
-    assert actual_content == expected_contents
+    assert actual_content == expected_contents, "content не совпадает фактический с ожидаемым"
 
     # ==============2 вариант  сравнения
-    assert [task['content'] for task in get_tasks_data] == ["test #3", "test #2", "test #1"]
+    assert [task['content'] for task in get_tasks_data] == ["test #3", "test #2", "test #1"], "content не совпадает фактический с ожидаемым"
 
     # ========3 вариант сравнения
     expected_contents_2 = [
@@ -75,7 +75,7 @@ def test_get_list_task_user_id():
         task_two_data['task']['content'],
         task_three_data['task']['content']
     ]
-    assert expected_contents_2[::-1] == actual_content
+    assert expected_contents_2[::-1] == actual_content, "content не совпадает фактический с ожидаемым"
 
 
     #             проверка, что task_id разные
