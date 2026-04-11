@@ -7,8 +7,8 @@ def test_create_minus_content():
         user_id = "str",
         is_done = False
     )
-    minus_content_response = minus_contents.json()
-    minus_content_data = minus_content_response
+    minus_content_data = minus_contents.json()
+     
 
     expected_result = { 
         "detail": [

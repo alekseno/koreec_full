@@ -7,9 +7,8 @@ def test_create_minus_task_id():
         user_id = "str",
         is_done = False
     )
-    minus_task_id_response = minus_task_ids.json()
-    minus_task_id_data = minus_task_id_response
-
+    minus_task_id_data = minus_task_ids.json()
+     
     assert minus_task_ids.status_code == httpx.codes.OK, f"Ожидался код 200, пришел {minus_task_ids.status_code}"
 
     assert minus_task_id_data['task']['content'] == "del task_id", "Поле content не соответствует ожидаемому результату"
