@@ -77,6 +77,14 @@ def test_get_list_task_user_id():
     ]
     assert expected_contents_2[::-1] == actual_content, "content не совпадает фактический с ожидаемым"
 
+    #===========4 вариант 
+    assert sorted(expected_contents_2) == sorted(actual_content)
+
+    #================5 вариант
+    assert len(expected_contents_2) == len(actual_content)
+    for item in expected_contents_2:
+        assert item in actual_content
+
 
     #             проверка, что task_id разные
     task_ids = [

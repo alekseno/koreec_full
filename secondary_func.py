@@ -85,3 +85,60 @@ def template_check_user_id(value: str):
     if re.match(r'^[0-9a-z]{8}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{12}$', value):
         return True
     return False
+
+# сoздание задачи без поля content
+def minus_content(
+        user_id: str,
+        is_done: bool
+) -> httpx.Response:
+    user_id = str(uuid.uuid4())
+
+    body = {
+        "user_id": user_id,
+        "is_done": is_done 
+    }
+
+    path = "/create-task"
+    return httpx.put(BASE_URL + path, json = body)
+
+# создание задачи без поля user_id
+def minus_user_id(
+        content: str,
+        is_done: bool
+) -> httpx.Response:
+    
+    body = {
+        "content": content,
+        "is_done": is_done
+    }
+    path = "/create-task"
+    return httpx.put(BASE_URL + path, json = body)
+
+# создание задача без поля task_id
+def minus_task_id(
+        content: str,
+        user_id: str,
+        is_done: bool
+) ->httpx.Response:
+    user_id = str(uuid.uuid4())
+
+    body = {
+        "content": content,
+        "user_id": user_id,
+        "is_done": is_done
+    }
+    path = "/create-task"
+    return httpx.put(BASE_URL + path, json = body)
+
+#создание задачи без поля is_done
+def minus_is_done(
+        content: str,
+        user_id: str
+) ->httpx.Response:
+    user_id = str(uuid.uuid4())
+    body = {
+        "content": content,
+        "user_id": user_id
+    }
+    path = "/create-task"
+    return httpx.put(BASE_URL + path, json = body)
